@@ -1,29 +1,23 @@
-import React from 'react';
-import Navbar from '../../components/Home/Navbar/Navbar';
-import { Container,Row,Col } from 'react-bootstrap';
+import React from "react";
+import Navbar from "../../components/Home/Navbar/Navbar";
+import BookList from "../../components/Home/BookList/BookList";
 
 const Home = () => {
-return (
+  return (
     <div>
-        <Navbar />
-	<div
-	style={{
-		display: 'flex',
-		justifyContent: 'Center',
-		alignItems: 'normal',
-		height: '100vh'
-	}}
-	>
-	<Container>
-  <Row>
-    <Col xs={{ order: 'last' }}>First, but last</Col>
-    <Col xs>Second, but unordered</Col>
-    <Col xs={{ order: 'first' }}>Third, but first</Col>
-  </Row>
-</Container>
-	</div>
+      <Navbar />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "Center",
+          alignItems: "normal",
+          height: "100vh",
+        }}
+      >
+        <BookList />
+      </div>
     </div>
-);
+  );
 };
 
 export default Home;
