@@ -6,16 +6,7 @@ const Home = () => {
   return (
     <div>
       <Navbar />
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "Center",
-          alignItems: "normal",
-          height: "100vh",
-        }}
-      >
-        <BookList />
-      </div>
+      <BookList />
     </div>
   );
 };
