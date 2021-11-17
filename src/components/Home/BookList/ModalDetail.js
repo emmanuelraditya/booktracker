@@ -1,8 +1,9 @@
 import React from "react";
 import { Modal, Box } from "@mui/material";
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import "./ModalDetail.css";
 
-function ModalDetail({isOpen,book,handleClose}) {
-
+function ModalDetail({ isOpen, book, handleClose,handleFavorite }) {
   const style = {
     position: "absolute",
     top: "50%",
@@ -17,34 +18,30 @@ function ModalDetail({isOpen,book,handleClose}) {
   };
 
   return (
-   
-      <Modal
-        open={isOpen}
-        // onClose={handleCloseBook}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        {/* <form onSubmit={handleSubmit}> */}
-        <Box sx={style}>
-          <p>Title: {book && book.book_details[0].title} </p>
-          <p>Contributor: by Clive Cussler and Justin Scott </p>
-          <p>Create date: 2016-03-10 12:00:22</p>
-          <p>
-            Description: In the ninth book in this series, set in 1906, the New
-            York detective Isaac Bell contends with a crime boss passing as a
-            respectable businessman and a tycoon’s plot against President
-            Theodore Roosevelt.
-          </p>
-          <p>Price: 0</p>
-          <p>ISBN13: 9780698406421</p>
-          <p>ISBN10: 0698406427</p>
-          <p>Title: The Gangster</p>
-          <p>Update Date: 2016-03-10 17:00:21</p>
-          <button onClick={handleClose}>close</button>
-          {/* <img src={TheGangsterBook} alt="title" style={{placeItems:"center"}}/> */}
-        </Box>
-        {/* </form> */}
-      </Modal>
+    <Modal
+      open={isOpen}
+      // onClose={handleCloseBook}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      {/* <form onSubmit={handleSubmit}> */}
+      <Box sx={style}>
+        <p>Title: {book && book.book_details[0].title} </p>
+        <p>Author: {book && book.book_details[0].author} </p>
+        <p>Contributor: {book && book.book_details[0].contributor} </p>
+        <p>Description: {book && book.book_details[0].description}</p>
+        <p>Price:  {book && book.book_details[0].price} </p>
+        <p>ISBN:  {book && book.book_details[0].primary_isbn13} </p>
+        <p>Publisher:  {book && book.book_details[0].publisher} </p>
+        {/* <p>Buy Link:  <a>{book && book.amazon_product_url} </a> </p> */}
+        <div className="button">
+        <button onClick={handleClose}>close</button>
+        <FavoriteIcon sx={{fill:"red"}} onClick={handleFavorite} />
+        {/* <img src={TheGangsterBook} alt="title" style={{placeItems:"center"}}/> */}
+        </div>
+      </Box>
+      {/* </form> */}
+    </Modal>
   );
 }
 

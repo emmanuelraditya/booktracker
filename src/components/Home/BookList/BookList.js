@@ -1,14 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
-import ImageListItemBar from "@mui/material/ImageListItemBar";
-import IconButton from "@mui/material/IconButton";
-import InfoIcon from "@mui/icons-material/Info";
-import { Modal, Box, styled } from "@mui/material";
-import { Link } from "react-router-dom";
-import TheGangsterBook from "./TheGangsterBook.jpeg";
-import { Component } from "react";
-import { AppBar, Grid, withStyles, Paper } from "@material-ui/core";
+import { Grid, withStyles } from "@material-ui/core";
 import BookCard from "../BookList/BookCard";
 import ModalDetail from "./ModalDetail";
 
@@ -33,12 +24,14 @@ const styles = {
 
 function GridComponent(props) {
   const { classes } = props;
-  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  // const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   const [books, setBook] = useState([]);
   const [bookDetail, setBookDetail] = useState("");
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [favorite,setFavorite]=useState([]);
+
 
   const handleShow = (idx) => {
     setOpen(true);
@@ -51,9 +44,9 @@ function GridComponent(props) {
     setBookDetail("");
   };
 
-  const handleSave = () => {
-    setOpen(false);
-    setBookDetail("");
+  const handleFavorite = (index) => {
+   const book=books[index];
+   setFavorite([...favorite,book])
   };
 
 
@@ -93,7 +86,7 @@ function GridComponent(props) {
               lg={4}
               onClick={() => handleShow(index)}
             >
-              <BookCard book={item} handleSave={handleSave} />
+              <BookCard book={item} handleFavorite={handleFavorite} />
             </Grid>
           ))}
       </Grid>

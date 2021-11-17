@@ -1,7 +1,7 @@
 import React from "react";
-import ReactDOM from "react-dom";
+// import ReactDOM from "react-dom";
 import { withStyles } from "@material-ui/core/styles";
-import Avatar from "@material-ui/core/Avatar";
+// import Avatar from "@material-ui/core/Avatar";
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
@@ -11,12 +11,12 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 
 // import "./styles.css";
 
-const faces = [
-  "http://i.pravatar.cc/300?img=1",
-  "http://i.pravatar.cc/300?img=2",
-  "http://i.pravatar.cc/300?img=3",
-  "http://i.pravatar.cc/300?img=4"
-];
+// const faces = [
+//   "http://i.pravatar.cc/300?img=1",
+//   "http://i.pravatar.cc/300?img=2",
+//   "http://i.pravatar.cc/300?img=3",
+//   "http://i.pravatar.cc/300?img=4"
+// ];
 
 const styles = muiBaseTheme => ({
   card: {
@@ -53,7 +53,7 @@ const styles = muiBaseTheme => ({
   }
 });
 
-function BookCard({ classes,book,handleSave }) {
+function BookCard({ classes,book,handleFavorite }) {
   return (
     <div>
       <Card className={classes.card}>
@@ -78,7 +78,7 @@ function BookCard({ classes,book,handleSave }) {
            {book.book_details[0].description}
           </Typography>
           <Divider className={classes.divider} light />
-         <FavoriteIcon onClick={handleSave} />
+         <FavoriteIcon onClick={handleFavorite} />
           {/* {faces.map(face => (
             <Avatar className={classes.avatar} key={face} src={face} />
           ))} */}
