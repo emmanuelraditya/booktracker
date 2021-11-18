@@ -8,7 +8,6 @@ import CardContent from "@material-ui/core/CardContent";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import BookFace from "./booklist.png";
 
 // import "./styles.css";
 
@@ -60,8 +59,9 @@ function BookCard({ classes,book,handleFavorite }) {
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
-          image={BookFace}
-            // "https://image.freepik.com/free-photo/river-foggy-mountains-landscape_1204-511.jpg"
+          image={
+            "https://image.freepik.com/free-photo/river-foggy-mountains-landscape_1204-511.jpg"
+          }
         />
         <CardContent className={classes.content}>
           <Typography
